@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24f845b8141731cf25f7b5545ab8d855",
+    "content-hash": "9ab87b10e4f98de39570fb474f7819aa",
     "packages": [
         {
             "name": "contributte/application",
@@ -1601,6 +1601,110 @@
                 "validation"
             ],
             "time": "2018-09-18T10:22:16+00:00"
+        },
+        {
+            "name": "tlapnet/chart",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tlapnet/chart.git",
+                "reference": "363f81aa4a761b5497ae679612d501d3fadaf735"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tlapnet/chart/zipball/363f81aa4a761b5497ae679612d501d3fadaf735",
+                "reference": "363f81aa4a761b5497ae679612d501d3fadaf735",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "ninjify/qa": "^0.8.0",
+                "phpunit/phpunit": "^7.3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-dev": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tlapnet\\Chart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Luděk Benedík"
+                }
+            ],
+            "description": "Graphs and charts based on C3.js",
+            "homepage": "https://github.com/tlapnet/chart",
+            "time": "2018-09-17T06:50:37+00:00"
+        },
+        {
+            "name": "tlapnet/report",
+            "version": "v0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tlapnet/report.git",
+                "reference": "ca1421f25ebd9539f85f3e16f3b9010926e7b45a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tlapnet/report/zipball/ca1421f25ebd9539f85f3e16f3b9010926e7b45a",
+                "reference": "ca1421f25ebd9539f85f3e16f3b9010926e7b45a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "dibi/dibi": "~2.3.5",
+                "latte/latte": "~2.4.6",
+                "mockery/mockery": "^0.9.9",
+                "nette/application": "~2.4.9",
+                "nette/database": "~2.4.4",
+                "nette/di": "~2.4.10",
+                "nette/forms": "~2.4.6",
+                "nette/neon": "~2.4.2",
+                "ninjify/qa": "^0.4.0",
+                "phpunit/phpunit": "~5.7.9",
+                "tlapnet/chart": "~1.0.0",
+                "tracy/tracy": "~2.4.10"
+            },
+            "suggest": {
+                "dibi/dibi": "Allows use Dibi\\DataSource",
+                "latte/latte": "Allows use Components",
+                "nette/application": "Allows use Components",
+                "nette/database": "Allows use Nette\\Database [DataSources]",
+                "nette/di": "Allows use Nette\\DI [Extensions]",
+                "nette/forms": "Allows use Nette\\Components [Controls]",
+                "nette/neon": "Allows use Neon\\Loaders",
+                "tlapnet/chart": "Allows use Charts\\Renderers",
+                "tracy/tracy": "Allows use Connections & DataSources panels"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-dev": "0.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tlapnet\\Report\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "time": "2018-02-15T13:57:54+00:00"
         },
         {
             "name": "tracy/tracy",

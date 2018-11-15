@@ -14,7 +14,9 @@
     "contributte/utils": "^0.3.1",
     "contributte/latte": "^0.3.0",
     "contributte/tracy": "^0.3.1",
-    "nette/robot-loader": "~2.4.4 || ~3.0.4"
+    "nette/robot-loader": "~2.4.4 || ~3.0.4",
+    "tlapnet/report": "^0.4.0",
+    "tlapnet/chart": "^2.0"
   },
   "require-dev": {
     "contributte/dev": "^0.1"
