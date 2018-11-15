@@ -1,6 +1,6 @@
-# Snow
+# Report Project
 
-> Tlapnet Snow Web Project.
+> Tlapnet Report Project.
 
 ### Installation
 
@@ -11,7 +11,7 @@
 
 #### Composer
 
-- `composer create-project tlapnet/snow-project`
+- `composer create-project tlapnet/report-project:@dev`
 
 ## Development
 

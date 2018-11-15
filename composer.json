@@ -1,6 +1,6 @@
 {
-  "name": "tlapnet/snow-project",
-  "description": "Tlapnet Snow Web Project",
+  "name": "tlapnet/report-project",
+  "description": "Tlapnet Report Project",
   "license": "MIT",
   "type": "project",
   "require": {
