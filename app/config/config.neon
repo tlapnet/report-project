@@ -51,3 +51,6 @@ parameters:
 # Services =============================
 services:
 	router: App\Model\RouterFactory::createRouter
+
+includes:
+	- reports.neon

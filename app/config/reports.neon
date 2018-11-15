@@ -1,0 +1,17 @@
+# Register extension
+extensions:
+	report: Tlapnet\Report\Bridges\Nette\DI\ReportExtension
+
+report:
+#	debug: %debugMode%
+
+	# List of folders for recursively loading of *.neon
+	folders:
+		- %appDir%/config/reports
+
+	# List of groups
+	groups:
+		simple: Simple
+		charts: Charts
+		database: Database
+		custom: Custom

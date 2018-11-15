@@ -1,0 +1,38 @@
+table:
+
+	groups: [simple]
+
+	metadata:
+		menu: Table
+#		description: "%appDir%/config/reports/tables/table1/report.neon"
+
+	subreport:
+		datasource:
+			factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+			setup:
+				- addRange(price, 1, 100000)
+				- addDate(date)
+				- addDateTime(datetime)
+				- addRange(count, 1, 100000)
+				- setRows(40)
+
+		preprocessors:
+			price:
+				- Tlapnet\Report\Preprocessor\Impl\CurrencyPreprocessor('CZK')
+			date:
+				- Tlapnet\Report\Preprocessor\Impl\DatePreprocessor('Y/m/d')
+			count:
+				- Tlapnet\Report\Preprocessor\Impl\PrependPreprocessor('PREPEND-')
+				- Tlapnet\Report\Preprocessor\Impl\AppendPreprocessor('-APPEND')
+
+		renderer:
+			factory: Tlapnet\Report\Bridges\Nette\Renderers\ExtraTable\ExtraTableRenderer
+			setup:
+				# Sorting (default value is on/true, so you can skip it)
+				- setSortable(on)
+
+				# Columns
+				- "?->addColumn('price')->title('Price')->align('right')"(@self)
+				- "?->addColumn('date', 'Date')->type('date')"(@self)
+				- "?->addColumn('datetime')->type('datetime')->title('Time')"(@self)
+				- "?->addColumn('count')->title('Count')->sortable(FALSE)"(@self)

@@ -1,0 +1,35 @@
+category:
+	groups: [charts]
+
+	metadata:
+		menu: Chart
+#		description: "%appDir%/config/reports/charts/category/report.neon"
+
+	subreports:
+		1:
+			datasource:
+				factory: Tlapnet\Report\DataSources\ArrayDataSource
+				arguments: [[
+					[id: 1, day: 1, money: 5000],
+					[id: 1, day: 2, money: 4000],
+					[id: 1, day: 3, money: 500],
+					[id: 2, day: 3, money: 500],
+					[id: 2, day: 5, money: 4000],
+					[id: 3, day: 4, money: 15000],
+				]]
+
+			renderer:
+				factory: Tlapnet\Report\Bridges\Chart\Renderers\Category\CategoryChartRenderer
+				setup:
+					- addCategory(1, 'Pondeli')
+					- addCategory(2, 'Utery')
+					- addCategory(3, 'Streda')
+					- addCategory(4, 'Ctvrtek')
+					- addCategory(5, 'Patek')
+
+					- addSegment("x", "day")
+					- addSegment("y", "money")
+
+					- addSerie([id: 1], Tlapnet\Chart\Serie\Serie::BAR, Felix, NULL, group1)
+					- addSerie([id: 2], Tlapnet\Chart\Serie\Serie::BAR, Crempa, NULL, group1)
+					- addSerie([id: 3], Tlapnet\Chart\Serie\Serie::BAR, Jurahu, NULL, group1)

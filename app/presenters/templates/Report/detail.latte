@@ -1,0 +1,15 @@
+{block #content}
+<div class="card shadow">
+	<div class="card-header">
+		{if $report->hasOption('title')}
+			{$report->getOption('title')}
+		{/if}
+		<small class="text-muted" n:if="$report->hasOption('description')">
+			{$report->getOption('description')|breaklines}
+		</small>
+	</div>
+	<div class="card-body">
+
+		{control render}
+	</div>
+</div>
