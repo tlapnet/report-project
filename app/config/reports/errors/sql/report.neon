@@ -1,0 +1,18 @@
+sqlerror1:
+
+	groups: [errors]
+
+	metadata:
+		menu: SqlError
+		description: "%appDir%/config/reports/errors/sql/report.neon"
+
+	subreport:
+		datasource:
+			factory: App\Model\DataSource\ExceptionDataSource
+			setup:
+				- setSql("SELECT foo.bar FROM foobar WHERE OMFG")
+
+		renderer:
+			factory: Tlapnet\Report\Bridges\Nette\Renderers\SimpleTable\SimpleTableRenderer
+			setup:
+				- addColumn("foo", "bar")

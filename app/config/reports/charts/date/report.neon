@@ -1,0 +1,33 @@
+date:
+	groups: [charts]
+
+	metadata:
+		menu: Date
+		description: "%appDir%/config/reports/charts/date/report.neon"
+
+	subreports:
+		1:
+			datasource:
+				factory: Tlapnet\Report\DataSources\ArrayDataSource
+				arguments: [[
+					[
+						tasks: 20
+						date: "2018-10-01 00:00:00"
+					],
+					[
+						tasks: 34
+						date: "2018-11-01 00:00:00"
+					],
+					[
+						tasks: 17
+						date: "2018-12-01 00:00:00"
+					]
+				]]
+
+			renderer:
+				factory: Tlapnet\Report\Bridges\Chart\Renderers\Date\DateChartRenderer
+				setup:
+					- addSegment("x", "date")
+					- addSegment("y", "tasks")
+
+					- addSerie([], Tlapnet\Chart\Serie\Serie::LINE, Ukoly)

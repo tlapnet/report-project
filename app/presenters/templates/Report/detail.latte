@@ -1,5 +1,5 @@
-{block #content}
-<div class="card shadow">
+ {block #content}
+<div class="card mb-4">
 	<div class="card-header">
 		{if $report->hasOption('title')}
 			{$report->getOption('title')}
@@ -9,7 +9,6 @@
 		</small>
 	</div>
 	<div class="card-body">
-
 		{control render}
 	</div>
 </div>

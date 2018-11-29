@@ -1,0 +1,55 @@
+pie1:
+	groups: [charts]
+
+	metadata:
+		menu: Pie
+		description: "%appDir%/config/reports/charts/pie/report.neon"
+
+	subreports:
+		1:
+			datasource:
+				factory: Tlapnet\Report\DataSources\ArrayDataSource
+				arguments: [[
+					[
+						tasks: 10
+						username: Felix
+					],
+					[
+						tasks: 34
+						username: Chuck
+					]
+				]]
+
+			renderer:
+				factory: Tlapnet\Report\Bridges\Chart\Renderers\Pie\PieChartRenderer
+				setup:
+					- addSegment("title", "username")
+					- addSegment("value", "tasks")
+
+		2:
+			datasource:
+				factory: Tlapnet\Report\DataSources\ArrayDataSource
+				arguments: [[
+					[
+						tasks: 10
+						username: Felix
+					],
+					[
+						tasks: 34
+						username: Chuck
+					],
+					[
+						tasks: 27
+						username: Doe
+					],
+					[
+						tasks: 23
+						username: Crempa
+					]
+				]]
+
+			renderer:
+				factory: Tlapnet\Report\Bridges\Chart\Renderers\Pie\PieChartRenderer
+				setup:
+					- addSegment("title", "username")
+					- addSegment("value", "tasks")

@@ -1,10 +1,10 @@
-table:
+table1:
 
-	groups: [simple]
+	groups: [tables]
 
 	metadata:
-		menu: Table
-#		description: "%appDir%/config/reports/tables/table1/report.neon"
+		menu: ExtraTable
+		description: "%appDir%/config/reports/tables/table1/report.neon"
 
 	subreport:
 		datasource:

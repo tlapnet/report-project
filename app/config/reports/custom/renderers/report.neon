@@ -1,0 +1,101 @@
+renderers:
+
+	groups: [custom]
+
+	metadata:
+		menu: Renderers
+		description: "%appDir%/config/reports/custom/renderers/report.neon"
+
+	subreports:
+		1:
+			metadata:
+				title: CSV
+
+			datasource:
+				factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+				setup:
+					- addInt(foo, 2)
+					- addString(bar, 50)
+					- setRows(20)
+
+			renderer:
+				factory: Tlapnet\Report\Renderers\CsvRenderer
+
+		2:
+			metadata:
+				title: JSON
+
+			datasource:
+				factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+				setup:
+					- addInt(foo, 2)
+					- addString(bar, 50)
+					- setRows(20)
+
+			renderer:
+				factory: Tlapnet\Report\Renderers\JsonRenderer
+
+		3:
+			metadata:
+				title: TABLE
+
+			datasource:
+				factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+				setup:
+					- addInt(foo, 2)
+					- addString(bar, 50)
+					- setRows(20)
+
+			renderer:
+				factory: Tlapnet\Report\Renderers\TableRenderer
+
+		4:
+			metadata:
+				title: CALLBACK
+
+			datasource:
+				factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+				setup:
+					- addInt(foo, 2)
+					- addString(bar1, 10)
+					- addString(bar2, 10)
+					- setRows(5)
+
+			renderer:
+				factory: Tlapnet\Report\Bridges\Nette\Renderers\ExtraTable\ExtraTableRenderer
+				setup:
+					- "?->addColumn('foo')->title('Foo')->url('http://tlapnet.cz')"(@self)
+					- "?->addColumn('bar1')->title('Bar1')->link('Homepage:')"(@self)
+					- "?->addColumn('bar2')->title('Bar2')->link('Homepage:', ['args1' => '#foo'])"(@self)
+					- "?->addAction('baz1')->title('Baz1')->label('ACTION')->link('Homepage:', ['args1' => '#foo'])"(@self)
+					- "?->addBlank('blank')->callback([?,?])"(@self, @report.renderer.callback, process )
+
+		5:
+			metadata:
+				title: COMBINE
+
+			datasource:
+				factory: Tlapnet\Report\DataSources\ArrayDataSource
+				arguments: [[
+					[name: Felix, tasks: 100],
+					[name: Crempa, tasks: 5],
+					[name: Vasek, tasks: 16],
+				]]
+
+			renderer:
+				factory: Tlapnet\Report\Renderers\MultiRenderer([
+					"$? = ?"(r1, Tlapnet\Report\Renderers\TableRenderer()),
+					"$? = ?"(r2, Tlapnet\Report\Bridges\Chart\Renderers\Donut\DonutChartRenderer())
+				])
+				setup:
+					- setSeparator('<hr>')
+
+					# ============================
+
+					# Update TableRenderer
+					# - "$?->...."(r1)
+
+					# Update DonutChartRenderer
+					- "$?->addSegment('title', 'name')"(r2)
+					- "$?->addSegment('value', 'tasks')"(r2)
+

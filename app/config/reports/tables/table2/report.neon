@@ -1,0 +1,46 @@
+table2:
+
+	groups: [tables]
+
+	metadata:
+		menu: "# SimpleTable"
+		description: "%appDir%/config/reports/tables/table2/report.neon"
+
+	subreport:
+		datasource:
+			factory: Tlapnet\Report\DataSources\ArrayDataSource
+			arguments: [[
+				[
+					id: 1
+					version: 13
+					module: login
+					beforeHook: 1
+					sqlHook: 1
+					afterHook: 1
+					lastUpdate: null
+				]
+				[
+					id: 2
+					version: 1
+					module: dashboard
+					beforeHook: 1
+					sqlHook: 1
+					afterHook: 1
+					lastUpdate: null
+				]
+				[
+					id: 3
+					version: 1
+					module: sample
+					beforeHook: 1
+					sqlHook: 1
+					afterHook: 1
+					lastUpdate: null
+				]
+			]]
+
+		renderer:
+			factory: Tlapnet\Report\Bridges\Nette\Renderers\SimpleTable\SimpleTableRenderer
+			setup:
+				- addColumn("version", "Version")
+				- addColumn("module", "Module")

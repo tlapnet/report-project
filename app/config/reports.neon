@@ -3,15 +3,35 @@ extensions:
 	report: Tlapnet\Report\Bridges\Nette\DI\ReportExtension
 
 report:
-#	debug: %debugMode%
+	debug: %debugMode%
+
+	# List of individual reports
+	files:
+		- %appDir%/config/reports/files/report.neon
 
 	# List of folders for recursively loading of *.neon
 	folders:
-		- %appDir%/config/reports
+		- %appDir%/config/reports/charts
+		- %appDir%/config/reports/custom
+		- %appDir%/config/reports/data
+		- %appDir%/config/reports/errors
+		- %appDir%/config/reports/random
+		- %appDir%/config/reports/tables
+
+	# List of services for reports
+	definitions:
+
+		renderer.callback:
+			class: App\Model\Renderers\ReportCallback
 
 	# List of groups
 	groups:
-		simple: Simple
+		random: Random
+		tables: Tables
 		charts: Charts
-		database: Database
 		custom: Custom
+		errors: Errors
+
+	# List of report groups
+	reports:
+		# Use can defined reports here..

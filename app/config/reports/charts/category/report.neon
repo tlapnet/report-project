@@ -2,8 +2,8 @@ category:
 	groups: [charts]
 
 	metadata:
-		menu: Chart
-#		description: "%appDir%/config/reports/charts/category/report.neon"
+		menu: CategoryChart
+		description: "%appDir%/config/reports/charts/category/report.neon"
 
 	subreports:
 		1:
@@ -21,11 +21,11 @@ category:
 			renderer:
 				factory: Tlapnet\Report\Bridges\Chart\Renderers\Category\CategoryChartRenderer
 				setup:
-					- addCategory(1, 'Pondeli')
-					- addCategory(2, 'Utery')
-					- addCategory(3, 'Streda')
-					- addCategory(4, 'Ctvrtek')
-					- addCategory(5, 'Patek')
+					- addCategory('1', 'Pondeli')
+					- addCategory('2', 'Utery')
+					- addCategory('3', 'Streda')
+					- addCategory('4', 'Ctvrtek')
+					- addCategory('5', 'Patek')
 
 					- addSegment("x", "day")
 					- addSegment("y", "money")

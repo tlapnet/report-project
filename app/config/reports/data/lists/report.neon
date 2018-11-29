@@ -1,0 +1,39 @@
+lists:
+
+	groups: [custom]
+
+	metadata:
+		menu: Datasets
+		description: "%appDir%/config/reports/data/lists/report.neon"
+
+	subreports:
+		1:
+			metadata:
+				title: Lists
+
+			params:
+				builder:
+					- addSelect({
+						name: month1
+						title: Mesic CZ
+						items: Tlapnet\Report\Data\Lists\Months::get()
+					})
+					- addSelect({
+						name: month2
+						title: Mesic SK
+						items: Tlapnet\Report\Data\Lists\Months::lang(sk)::get()
+					})
+					- addSelect({
+						name: month3
+						title: Mesic lower
+						items: Tlapnet\Report\Data\Lists\Months::lang(cs)::lower()::get()
+					})
+
+			datasource:
+				factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+				setup:
+					- addInt(foo, 2)
+					- setRows(5)
+
+			renderer:
+				factory: Tlapnet\Report\Renderers\TableRenderer

@@ -1,0 +1,21 @@
+groupless:
+
+	groups: []
+
+	metadata:
+		menu: GroupLess
+		description: "%appDir%/config/reports/custom/groupless/report.neon"
+
+	subreport:
+		datasource:
+			factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+			setup:
+				- addInt(foo, 2)
+				- addString(bar, 50)
+				- setRows(20)
+
+		renderer:
+			factory: Tlapnet\Report\Bridges\Nette\Renderers\SimpleTable\SimpleTableRenderer
+			setup:
+				- addColumn("foo", "F")
+				- addColumn("bar", "B")

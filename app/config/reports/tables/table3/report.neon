@@ -1,0 +1,42 @@
+table3:
+
+	groups: [tables]
+
+	metadata:
+		menu: Vertical
+		description: "%appDir%/config/reports/tables/table3/report.neon"
+
+
+	subreport:
+		datasource:
+			factory: Tlapnet\Report\DataSources\ArrayDataSource
+			arguments: [[
+				"Migration ID #1": 1
+				"Migration ID #2": 2
+				"Migration ID #3": 3
+			]]
+
+		preprocessors:
+			# Global preprocessors (for each row)
+			key:
+				- Tlapnet\Report\Preprocessor\Impl\AppendPreprocessor(' GLOBAL')
+			value:
+				- Tlapnet\Report\Preprocessor\Impl\AppendPreprocessor('10')
+
+			# For 1st row
+			key0:
+				- Tlapnet\Report\Preprocessor\Impl\AppendPreprocessor(' SPECIFIC-KEY')
+			value0:
+				- Tlapnet\Report\Preprocessor\Impl\CurrencyPreprocessor('CZK')
+
+			# For 2nd row
+			value1:
+				- Tlapnet\Report\Preprocessor\Impl\CurrencyPreprocessor('E')
+
+		renderer:
+			factory: Tlapnet\Report\Bridges\Nette\Renderers\VerticalTable\VerticalTableRenderer
+
+			# It is not necessary to setup VerticalTableRenderer
+			setup:
+				# <th> labels
+				- setColumns("key", "value")

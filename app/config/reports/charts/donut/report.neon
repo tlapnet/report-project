@@ -1,0 +1,35 @@
+donut:
+	groups: [charts]
+
+	metadata:
+		menu: Donut
+		description: "%appDir%/config/reports/charts/donut/report.neon"
+
+	subreports:
+		1:
+			datasource:
+				factory: Tlapnet\Report\DataSources\ArrayDataSource
+				arguments: [[
+					[
+						tasks: 10
+						username: Felix
+					],
+					[
+						tasks: 34
+						username: Chuck
+					],
+					[
+						tasks: 27
+						username: Doe
+					],
+					[
+						tasks: 23
+						username: Crempa
+					]
+				]]
+
+			renderer:
+				factory: Tlapnet\Report\Bridges\Chart\Renderers\Donut\DonutChartRenderer
+				setup:
+					- addSegment("title", "username")
+					- addSegment("value", "tasks")

@@ -1,0 +1,10 @@
+factory:
+
+	groups: [custom]
+
+	metadata:
+		menu: ReportFactory
+		description: "%appDir%/config/reports/custom/factory/report.neon"
+
+	subreports:
+		1: App\Model\Subreports\FooSubreportFactory

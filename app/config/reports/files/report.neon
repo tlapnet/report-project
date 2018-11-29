@@ -1,0 +1,21 @@
+files:
+	groups: [custom]
+
+	metadata:
+		menu: OneFile
+		description: "%appDir%/config/reports/files/report.neon"
+
+	subreport:
+		datasource:
+			factory: Tlapnet\Report\DataSources\ArrayDataSource
+			arguments: [[
+				[id: 1, user_name: "Milan Sulc", created_at: "1.1.2000"],
+				[id: 2, user_name: "Juraj", created_at: "5.1.2001"],
+				[id: 3, user_name: "Crempa", created_at: "20.5.2002"],
+				[id: 4, user_name: "Nette", created_at: "9.9.2004"],
+			]]
+
+		renderer:
+			factory: Tlapnet\Report\Bridges\Nette\Renderers\SimpleTable\SimpleTableRenderer
+			setup:
+				- addColumn("user_name", "Name")

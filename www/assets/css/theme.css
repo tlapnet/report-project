@@ -5,8 +5,7 @@ html {
 
 body {
     background-color: #eff3f5;
-    margin-bottom: 60px; /* Margin bottom by footer height */
-
+    margin-bottom: 80px; /* Margin bottom by footer height */
 }
 
 .container {
@@ -27,9 +26,6 @@ body {
 .card {
     border-radius: 0;
     border: none;
-    -webkit-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
-    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
-    background-color: #fff;
 }
 
 .card-header {
@@ -38,4 +34,10 @@ body {
     color: #575962;
     background-color: #fff;
     border-bottom: 1px solid #ebedf2;
+}
+
+.box-shadow{
+    -webkit-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+    background-color: #fff;
 }

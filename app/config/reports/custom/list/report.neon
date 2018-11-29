@@ -1,0 +1,20 @@
+list:
+
+	groups: [custom]
+
+	metadata:
+		menu: "CustomRenderer (List)"
+		description: "%appDir%/config/reports/custom/list/report.neon"
+
+	subreports:
+
+		1:
+			datasource:
+				factory: Tlapnet\Report\Bridges\Nette\DataSource\RandomDataSource
+				setup:
+					- addInt(foo, 2)
+					- addString(bar, 50)
+					- setRows(20)
+
+			renderer:
+				factory: App\Model\Renderers\Custom\CustomRenderer
